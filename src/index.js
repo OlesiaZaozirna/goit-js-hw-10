@@ -1,11 +1,9 @@
-//Use it as the 'x-api-key' header when making any request to the API, or by adding as a query string parameter e.g. 'api_key=live_LPnXlQ229NmBimU9x6qQKGhqCLatSsiVqev4wkM3mmEE6D3E7eX9tRUv62ittXkN'
-
 import axios from 'axios';
 
 axios.defaults.headers.common['x-api-key'] =
   'live_LPnXlQ229NmBimU9x6qQKGhqCLatSsiVqev4wkM3mmEE6D3E7eX9tRUv62ittXkN';
 
-  /*
+/*
   1)отримуємо рефси
   2)вішаємо слухач подій на форму типу сабміт 
   1. превент дефолт (аби заборонити перезавантаження сторінки)
@@ -17,29 +15,29 @@ axios.defaults.headers.common['x-api-key'] =
   2. посилаємо запит і отримаємо дані (оброблюємо помилки)
   4)напишемо функцію для створення розмітки карточок
 */
-
 const refs = {
-    form: document.querySelector(".js-search-form"),
-    list:  document.querySelector(".js-list"),
-}
-refs.form.addEventListener("submit", handleSubmit);
-
-function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const { city, days } = form.elements;
-serviceWeather(city.value, days.value).then(({forecast: forecastday})=>{})    
-}
-
-function serviceWeather(city, days) {
-    const Base_URL = "htth/:";
-    const ENDPOINT = "forecast.json";
-    const API_KEY = "3254676464897";
-    const params = new URLSearchParams({
-        key: API_KEY,
-        q: city, days,
-        lang: "uk"
+  form: document.querySelector('.bread-select'),
+  list: document.querySelector('.bread-list'),
+};
+refs.form.addEventListener('submit', handleSearch);
+function handleSearch(event) {
+  event.preventDefault();
+  const { value } = refs.form; // Виправлено доступ до властивості
+  fetchBreeds(value)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
     })
-
-    return fetch(`${BAse_Url}/${Enpoint}, ${params}`).then((response) => { })
-        
+    .then(data => {
+      // Обробте дані
+      console.log(data);
+      // Викличте функцію для створення розмітки із отриманих даних
+      refs.list.innerHTML = createMarkup(data);
+    })
+    .catch(error => {
+      // Обробка помилок
+      console.error(error);
+    });
+}
