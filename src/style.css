@@ -1,38 +1,61 @@
 body {
-  background-color: #fff;
+  background: url(./img/fon1.png) no-repeat center center fixed;
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0;
+  background-size: cover;
   height: 100vh;
 }
 
-.container {
-  border: 1px solid black;
-  min-width: 320px;
-  max-width: 1158px;
-  padding: 25px 16px;
-  background-image: url(./img/cat\ bacgrounds.jpg);
+.cat-info {
+  margin: 30px;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-@media screen and (min-width: 428px) {
-  .container {
-    max-width: 428px;
+@media only screen and (min-width: 1150px) {
+  .cat-info {
+    flex-wrap: nowrap;
+    max-width: 650px;
   }
 }
-
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
+.cat-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+@media only screen and (min-width: 860px) {
+  .cat-right {
+    display: block;
   }
 }
-
-@media screen and (min-width: 1158px) {
-  .container {
-    max-width: 1158px;
-    min-width: 1150px;
-    height: 550px;
-    background-size: cover;
-    padding: 25px 15px;
+.cat-img {
+  box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 30px;
+  max-width: 300px;
+}
+@media only screen and (min-width: 1150px) {
+  .cat-img {
+    max-width: 500px;
   }
+}
+.temperament-span {
+  font-weight: bold;
+}
+
+.cat-info-img {
+  height: auto;
+  max-height: 350px;
+  width: 400px;
+  border-radius: 15px;
+  margin-right: 20px;
+}
+
+.cat-details {
+  max-width: 400px;
 }
