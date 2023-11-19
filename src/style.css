@@ -5,6 +5,8 @@ body {
   background-size: cover;
   height: 100vh;
 }
+.breed-select {
+}
 
 .cat-info {
   margin: 30px;
