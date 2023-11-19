@@ -5,6 +5,9 @@ body {
   background-size: cover;
   height: 100vh;
 }
+h1 {
+  color: red;
+}
 .breed-select {
 }
 
