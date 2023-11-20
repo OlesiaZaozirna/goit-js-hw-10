@@ -8,18 +8,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Signika&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <p class="loader"></p>
     <h1>Adopt a cat, Don't Shop</h1>
-    <select class="breed-select" id="select"></select>
-    <p class="loader">Loading data, please wait...</p>
+    <p class="text">Choose a friend from the shelter for adoption</p>
+    <select
+      class="breed-select js-breed-select"
+      id="breedSelect"
+      name="breedSelect"
+    ></select>
+
     <p class="error">Oops! Something went wrong! Try reloading the page!</p>
-    <div class="cat-info">
-      <p class="text">Choose a friend from the shelter for adoption</p>
-    </div>
+    <div class="cat-info"></div>
 
     <script src="./index.js" type="module"></script>
   </body>
